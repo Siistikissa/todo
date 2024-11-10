@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { UserContext } from "./UserContext";
 import axios from "axios";
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const url = process.env.REACT_APP_API_URL
 

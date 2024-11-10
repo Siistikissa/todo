@@ -14,7 +14,7 @@ export default function Authentication({authenticationMode}){
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            if (AuthenticationMode === AuthenticationMode.Register){
+            if (authenticationMode === AuthenticationMode.Register){
                 await signUp()
                 navigate('/signin')
             }else {
