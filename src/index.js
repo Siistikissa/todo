@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
   {
-    errorElement: <ErrorPage></ErrorPage>
+    errorElement: <ErrorPage/>
   },
   {
     path: "/signin",

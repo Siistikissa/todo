@@ -22,6 +22,7 @@ export default function Authentication({authenticationMode}){
                 navigate("/")
             }
         } catch(error) {
+            console.error("Authentication error:", error);
             const message = error.response && error.response.data ? error.response.data.error : error
             alert(message)
         }
@@ -29,10 +30,10 @@ export default function Authentication({authenticationMode}){
     return (
         <div>
             <h3>{authenticationMode === AuthenticationMode.Login ? 'Sign in' : 'Sign up'}</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label>Email</label>
-                    <input type='email' value={user.email} onChange={e=> setUser({...user,password: e.target.value})}/>
+                    <input type='email' value={user.email} onChange={e=> setUser({...user,email: e.target.value})}/>
                 </div>
                 <div>
                     <label>Password</label>
@@ -43,7 +44,7 @@ export default function Authentication({authenticationMode}){
                 </div>
                 <div>
                     <Link to={authenticationMode === AuthenticationMode.Login ? '/signup' : '/signin'}>
-                        {authenticationMode === AuthenticationMode.Login ? 'No accoun? Sign up' : 'Already signed up? Sign in'}
+                        {authenticationMode === AuthenticationMode.Login ? 'No account? Sign up' : 'Already signed up? Sign in'}
                     </Link>
                 </div>
             </form>
